@@ -1,0 +1,7 @@
+cluster:
+  network:
+    dnsDomain: ${cluster_settings.dns_domain}
+    podSubnets: ${cluster_settings.pod_subnets}
+    serviceSubnets: ${cluster_settings.service_subnets}
+    cni:
+      name: none

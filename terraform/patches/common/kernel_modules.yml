@@ -1,0 +1,6 @@
+machine:
+  kernel:
+    modules:
+      - name: dm_crypt
+      - name: iscsi_tcp
+      - name: tun

@@ -1,0 +1,9 @@
+machine:
+  certSANs:
+    - "platform.internal.ilysium.io"
+    - "talos-01.ilysium.internal"
+
+  install:
+    disk: ""
+    wipe: false
+    grubUseUKICmdline: true
