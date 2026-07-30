@@ -8,18 +8,9 @@ machine:
       wwid: eui.002538ba31a18278
     wipe: false
 
-  nodeLabels:
-    node.longhorn.io/create-default-disk: "config"
+  nodeLabels: {}
 
-  nodeAnnotations:
-    node.longhorn.io/default-disks-config: |
-      [
-        {
-          "path": "/var/mnt/longhorn-data",
-          "allowScheduling": true,
-          "tags": ["ssd"]
-        }
-      ]
+  nodeAnnotations: {}
 ---
 apiVersion: v1alpha1
 kind: HostnameConfig
