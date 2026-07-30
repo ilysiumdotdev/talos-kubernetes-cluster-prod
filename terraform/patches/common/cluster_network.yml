@@ -1,7 +1,9 @@
 cluster:
   network:
-    dnsDomain: ${cluster_settings.dns_domain}
-    podSubnets: ${cluster_settings.pod_subnets}
-    serviceSubnets: ${cluster_settings.service_subnets}
+    dnsDomain: prod-us-1.cluster.ilysium.io
+    podSubnets:
+      - 10.254.0.0/16
+    serviceSubnets:
+      - 10.96.0.0/12
     cni:
       name: none

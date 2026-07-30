@@ -1,4 +1,4 @@
----
 apiVersion: v1alpha1
 kind: ResolverConfig
-nameservers: ${network_settings.nameservers}
+nameservers:
+  - address: 10.20.20.1

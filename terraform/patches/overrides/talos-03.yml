@@ -1,11 +1,11 @@
 machine:
   certSANs:
     - "prod-us-1.k8s.ilysium.io"
-    - "talos-01.ilysium.internal"
+    - "talos-03.ilysium.internal"
 
   install:
     diskSelector:
-      wwid: eui.e8238fa6bf530001001b448b4598d5be
+      wwid: eui.002538bb41b3b1a4
     wipe: false
 
   nodeLabels:
@@ -23,7 +23,7 @@ machine:
 ---
 apiVersion: v1alpha1
 kind: HostnameConfig
-hostname: talos-01
+hostname: talos-03
 auto: off
 ---
 apiVersion: v1alpha1
@@ -32,7 +32,7 @@ name: eno1
 mtu: 1500
 up: true
 addresses:
-  - address: 10.20.20.20/27
+  - address: 10.20.20.18/27
 routes:
   - gateway: 10.20.20.1
 ---
@@ -69,8 +69,9 @@ name: longhorn-data
 volumeType: partition
 provisioning:
   diskSelector:
-    match: disk.wwid == "naa.5002538870063fa6"
-  maxSize: 900GiB
+    match: disk.wwid == "naa.5002538e7031752e"
+  minSize: 10GiB
+  grow: true
 encryption:
   provider: luks2
   keys:

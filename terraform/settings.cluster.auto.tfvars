@@ -4,21 +4,36 @@
 Manage the configuration, features, and internal networking of the deployed cluster.
 */
 cluster_settings = {
-    # Talos Linux & Kubernetes versions
-    talos_version      = "1.12.5"
-    kubernetes_version = "1.35.2"
+  # Talos Linux & Kubernetes versions
+  talos_version      = "1.13.6"
+  kubernetes_version = "1.35.2"
 
-    # Cluster metadata & management endpoint
-    cluster_name       = "ilysium-prod-us-1"
-    cluster_endpoint   = "platform.internal.ilysium.io"
-    
-    # Cluster internal connectivity
-    dns_domain      = "prod-us-1.cluster.ilysium.io"
-    pod_subnets     = ["10.254.0.0/16"]
-    service_subnets = ["10.96.0.0/12"]
+  # Cluster metadata & management endpoint
+  cluster_name     = "ilysium-prod-us-1"
+  cluster_endpoint = "prod-us-1.k8s.ilysium.io"
+}
 
-    # Cluster features & functionality
-    allow_scheduling_on_control_planes = true
-    disable_kube_proxy                 = true
-    enable_kubeprism                   = true
+/*
+--- Cluster Nodes ---
+Manage cluster node inventory and metadata.
+*/
+cluster_nodes = {
+  talos-01 = {
+    hostname  = "talos-01"
+    address   = "talos-01.ilysium.internal"
+    role      = "controlplane"
+    overrides = ["talos-01.yml"]
+  }
+  talos-02 = {
+      hostname  = "talos-02"
+      address   = "talos-02.ilysium.internal"
+      role      = "controlplane"
+      overrides = ["talos-02.yml"]
+  }
+  talos-03 = {
+      hostname  = "talos-03"
+      address   = "talos-03.ilysium.internal"
+      role      = "controlplane"
+      overrides = ["talos-03.yml"]
+  }
 }
